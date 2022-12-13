@@ -1,11 +1,8 @@
 import React from "react";
-import { connect } from "react-redux/es/exports";
+import { useSelector } from "react-redux";
 
-type PropsType = {
-  count: number;
-};
-
-function Count({ count }: PropsType) {
+function Count() {
+  const count = useSelector((state: any) => state.count);
   return (
     <>
       <div>Countコンポーネント：{count}</div>
@@ -13,8 +10,4 @@ function Count({ count }: PropsType) {
   );
 }
 
-const mapStateToProps = (state: any) => {
-  return { count: state.count };
-};
-
-export default connect(mapStateToProps)(Count);
+export default Count;
