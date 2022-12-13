@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux/es/exports";
 import "./App.css";
+import Count from "./components/Count";
 
 type PropsType = {
   count: number;
@@ -11,6 +12,7 @@ function App({ count }: PropsType) {
     <div>
       <h1>Redux Learn</h1>
       <p>Count: {count}</p>
+      <Count />
     </div>
   );
 }
