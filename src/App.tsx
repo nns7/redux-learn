@@ -4,7 +4,7 @@ import Count from "./components/Count";
 import { useSelector } from "react-redux";
 
 function App() {
-  const count = useSelector((state: any) => state.count);
+  const count = useSelector((state: any) => state.countReducer.count);
   return (
     <div>
       <h1>Redux Learn</h1>
