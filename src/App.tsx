@@ -3,19 +3,12 @@ import "./App.css";
 import { connect } from "react-redux";
 
 type Props = {
-  dispatch: any;
   count: number;
+  increase: any;
+  decrease: any;
 };
 
-function App({ dispatch, count }: Props) {
-  const increase = () => {
-    dispatch({ type: "INCREASE_COUNT" });
-  };
-
-  const decrease = () => {
-    dispatch({ type: "DECREASE_COUNT" });
-  };
-
+function App({ count, increase, decrease }: Props) {
   return (
     <div>
       <h1>Redux Learn</h1>
@@ -29,8 +22,14 @@ function App({ dispatch, count }: Props) {
 const mapStateToProps = (state: any) => {
   return {
     count: state.count,
-    posts: state.posts,
   };
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    increase: () => dispatch({ type: "INCREASE_COUNT" }),
+    decrease: () => dispatch({ type: "DECREASE_COUNT" }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
